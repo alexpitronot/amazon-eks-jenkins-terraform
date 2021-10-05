@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo '=== Building Petclinic Docker Image ==='
                 script {
-                    app = docker.build("agorbach/far")
+                    app = docker.build("agorbach/far-2-cel")
                 }
             }
         }
@@ -51,8 +51,8 @@ pipeline {
         stage('Remove local images') {
             steps {
                 echo '=== Delete the local docker images ==='
-                sh("docker rmi -f agorbach/far:latest || :")
-                sh("docker rmi -f agorbach/far:$SHORT_COMMIT || :")
+                sh("docker rmi -f agorbach/far-2-cel:latest || :")
+                sh("docker rmi -f agorbach/far-2-cel:$SHORT_COMMIT || :")
             }
         }
     }
