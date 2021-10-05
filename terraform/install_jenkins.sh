@@ -26,6 +26,7 @@ sudo yum upgrade
 sudo yum install -y jenkins
 sudo systemctl start jenkins
 sudo usermod -a -G docker jenkins
+sudo chmod 666 /var/run/docker.sock
 sudo chkconfig jenkins on
 sudo systemctl daemon-reload
 sudo service docker start
