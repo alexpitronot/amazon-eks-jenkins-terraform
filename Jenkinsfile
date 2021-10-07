@@ -37,7 +37,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo '=== Pushing Petclinic Docker Image ==='
+                echo '=== Pushing Petclinic Docker Image Last Time==='
                 script {
                     GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
                     SHORT_COMMIT = "${GIT_COMMIT_HASH[0..7]}"
