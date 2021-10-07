@@ -43,7 +43,7 @@ pipeline {
                     SHORT_COMMIT = "${GIT_COMMIT_HASH[0..7]}"
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerHubCredentials') {                        
                         app.push("latest")
-                        app.push("$SHORT_COMMIT")
+                        app.push("v-$SHORT_COMMIT")
                     }
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
             steps {
                 echo '=== Delete the local docker images ==='
                 sh("docker rmi -f agorbach/far-2-cel:latest || :")       
-                sh("docker rmi -f agorbach/far-2-cel:$SHORT_COMMIT || :")
+                sh("docker rmi -f agorbach/far-2-cel:v-$SHORT_COMMIT || :")
             }
         }
     }
